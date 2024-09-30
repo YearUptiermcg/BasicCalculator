@@ -1,17 +1,19 @@
 package com.pluralsight;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class BasicCalculator {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
 
-        // Step 1: Read two floating-point numbers
+        // Step 1:
         System.out.print("Enter the first number: ");
-        double firstNumber = scanner.nextDouble();
+        float num1 = s.nextFloat();
+        s.nextLine();
 
         System.out.print("Enter the second number: ");
-        double secondNumber = scanner.nextDouble();
+        float num2 = s.nextFloat();
+        s.nextLine();
 
         // Display possible calculations
         System.out.println("Possible calculations:");
@@ -19,36 +21,32 @@ public class BasicCalculator {
         System.out.println("(S)ubtract");
         System.out.println("(M)ultiply");
         System.out.println("(D)ivide");
-
-        // Step 2: Ask the user for an operation
         System.out.print("Please select an option: ");
-        char choice = scanner.next().charAt(0); // Using 'choice' instead of 'operation'
 
-        double result = 0; // Initialize result
+        String option = s.nextLine();
 
-        // Perform the requested operation using if statements
-        if (choice == 'A' || choice == 'a') {
-            result = firstNumber + secondNumber;
-            System.out.println(firstNumber + " + " + secondNumber + " = " + result);
+        //assume we will add
+        if (option.equals("A")) {
+            //System.out.println("A is selected");
+            float result = num1 + num2;
+            System.out.println(num1 + " + " + num2 + " = " + result);
         }
-
-        if (choice == 'S' || choice == 's') {
-            result = firstNumber - secondNumber;
-            System.out.println(firstNumber + " - " + secondNumber + " = " + result);
+        if (option.equals("S")) {
+            //System.out.println("S is selected");
+            float result = num1 - num2;
+            System.out.println(num1 + " - " + num2 + " - " + result);
         }
-
-        if (choice == 'M' || choice == 'm') {
-            result = firstNumber * secondNumber;
-            System.out.println(firstNumber + " * " + secondNumber + " = " + result);
+        if (option.equals("M")) {
+            //System.out.println("M is selected");
+            float result = num1 * num2;
+            System.out.println(num1 + " * " + num2 + " = " + result);
         }
+        if (option.equals("D")) {
+            //System.out.println("D is selected");
+            float result = num1 + num2;
+            System.out.println(num1 + " / " + num2 + " = " + result);
 
-        if (choice == 'D' || choice == 'd') {
-            if (secondNumber != 0) {
-                result = firstNumber / secondNumber;
-                System.out.println(firstNumber + " / " + secondNumber + " = " + result);
-            } else {
-                System.out.println("Error: Division by zero is not allowed.");
-            }
+
         }
     }
 }
